@@ -9,8 +9,8 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/scanner" element={<Scanner />}></Route>
-        <Route path="/scanner" element={<PasswordChecker />}></Route>
-        <Route path="/scanner" element={<PasswordManager />}></Route>
+        <Route path="/password-checker" element={<PasswordChecker />}></Route>
+        <Route path="/password-manager" element={<PasswordManager />}></Route>
       </Routes>
     </Router>
   );
