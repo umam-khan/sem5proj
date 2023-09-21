@@ -6,6 +6,7 @@ function VirusTotalUploader() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [analysisLink, setAnalysisLink] = useState(null);
+  const [completed,setCompleted] = useState(true);
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
@@ -43,8 +44,13 @@ function VirusTotalUploader() {
   };
 
   const fetchAnalysisResult = () => {
+    if(result){
+      if(result.data.attributes.status!='completed'){
+        setCompleted(false);
+      } else{setCompleted(true)}
+    }
     if (!analysisLink) {
-      setError('Analysis link is not available.');
+      setError('Upload a File to our server First to get analysis');
       return;
     }
 
@@ -68,11 +74,27 @@ function VirusTotalUploader() {
   return (
     <div>
 
-      <h2>VirusTotal File Uploader</h2>
-      <input type="file" onChange={handleFileSelect} />
-      <button onClick={handleSubmit}>Upload & Scan</button>
-      <button onClick={fetchAnalysisResult}>Fetch Analysis Result</button>
-      {error && <div className="error">{error}</div>}
+      <h2 className='text-2xl font-bold'>UnHackMe's Signature + Source Code AV Detection</h2>
+      <p className='mt-5'>Upload your File for Scanning. It Might take few minutes after you upload to get it analyzed</p>
+      <input className='mt-5' type="file" onChange={handleFileSelect} />
+      <button className='bg-black text-white p-2 mt-5 rounded-lg mr-8' onClick={handleSubmit}>Upload & Scan</button>
+      <button className='bg-black text-white p-2 mt-5 rounded-lg' onClick={fetchAnalysisResult}>Fetch Analysis Result</button>
+      {error && <div className="text-red-500 mt-5">{error}</div>}
+      <div className='mt-5 bg-gray-200 p-5 rounded-sm'>
+        <h1 className='text-center font-bold text-2xl'>Analysis Report</h1>
+        {/* {completed && <div>
+          <h1>Your File is still being processed by servers. Please wait</h1>
+        </div>} */}
+        {result && (
+          <div>
+            <h1>{result && result.data && result.data.results && result.data.results["Bkav"] (
+              <div>
+                <h1>{result.data.results["Bkav"].category}</h1>
+              </div>
+            )}</h1>
+          </div>
+        )}
+      </div>
       {result && (
         <div>
           <h3>Scan Result:</h3>
