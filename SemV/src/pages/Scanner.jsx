@@ -67,6 +67,7 @@ function VirusTotalUploader() {
 
   return (
     <div>
+
       <h2>VirusTotal File Uploader</h2>
       <input type="file" onChange={handleFileSelect} />
       <button onClick={handleSubmit}>Upload & Scan</button>

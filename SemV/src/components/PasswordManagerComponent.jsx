@@ -51,14 +51,6 @@ const PasswordManagerComponent = () => {
 
   return (
     <div>
-      <nav>
-        <div className="logo">PassX</div>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
       <div className="container">
         <h1>Password Manager</h1>
         <p>
