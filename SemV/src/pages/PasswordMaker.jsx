@@ -177,10 +177,30 @@ function PasswordMaker() {
             </div>
 
             <div className="generator__form-actions">
-              <button onClick={generatePassword} className="btn generate-btn">
+              <button
+                onClick={generatePassword}
+                // className="btn generate-btn"
+                style={{
+                  backgroundColor: "black",
+                  color: "white",
+                  borderRadius: "5px",
+                  width: "150px",
+                  height: "40px",
+                }}
+              >
                 Generate Password
               </button>
-              <button onClick={copyPasswordHandler} className="btn copy-btn">
+              <button
+                onClick={copyPasswordHandler}
+                // className="btn copy-btn"
+                style={{
+                  backgroundColor: "black",
+                  color: "white",
+                  borderRadius: "5px",
+                  width: "150px",
+                  height: "40px",
+                }}
+              >
                 Copy Password
               </button>
             </div>
