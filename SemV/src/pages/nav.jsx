@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -5,13 +6,13 @@ const Navbar = () => {
       <nav>
         <div className="logo">UnHackMe</div>
         <ul>
-          <li>Scanner</li>
-          <li>Manager</li>
-          <li>Generator</li>
+          <li><Link to="/scanner" style={{ textDecoration: 'none' }}>Scanner</Link></li>
+          <li><Link to="/password-manager" style={{ textDecoration: 'none' }}>Manager</Link></li>
+          <li><Link to="/password-maker" style={{ textDecoration: 'none' }}>Generator</Link></li>
         </ul>
       </nav>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
