@@ -167,12 +167,25 @@ function PasswordMaker() {
               />
             </div>
 
-            <div className="generator__length">
+            <div
+              className="generator__length"
+              style={{ backgroundColor: "white", border: "1px solid black" }}
+            >
               <h4 className="generator__length-title">Password Length</h4>
               <div className="generator__length-counter">
-                <button onClick={decreaseCounter}>-</button>
+                <button
+                  onClick={decreaseCounter}
+                  style={{ backgroundColor: "black", color: "white" }}
+                >
+                  -
+                </button>
                 <span>{counter}</span>
-                <button onClick={increaseCounter}>+</button>
+                <button
+                  onClick={increaseCounter}
+                  style={{ backgroundColor: "black", color: "white" }}
+                >
+                  +
+                </button>
               </div>
             </div>
 

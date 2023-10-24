@@ -61,13 +61,57 @@ const PasswordManagerComponent = () => {
         <h2>
           Your Passwords <span id="alert">(Copied!)</span>
         </h2>
-        <table>
+        <table
+          style={{
+            borderCollapse: "collapse",
+            width: "100%",
+            border: "1px solid #ccc",
+            borderRadius: "10px",
+          }}
+        >
           <thead>
             <tr>
-              <th>Website</th>
-              <th>Username</th>
-              <th>Password</th>
-              <th>Delete</th>
+              <th
+                style={{
+                  border: "1px solid #ccc",
+                  padding: "8px",
+                  textAlign: "left",
+                  backgroundColor: "#f2f2f2",
+                  fontWeight: "bold",
+                }}
+              >
+                Website
+              </th>
+              <th
+                style={{
+                  border: "1px solid #ccc",
+                  padding: "8px",
+                  textAlign: "left",
+                  fontWeight: "bold",
+                }}
+              >
+                Username
+              </th>
+              <th
+                style={{
+                  border: "1px solid #ccc",
+                  padding: "8px",
+                  textAlign: "left",
+                  fontWeight: "bold",
+                }}
+              >
+                Password
+              </th>
+              <th
+                style={{
+                  border: "1px solid #ccc",
+                  padding: "8px",
+                  textAlign: "left",
+                  fontWeight: "bold",
+                }}
+              >
+                Delete
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -77,8 +121,14 @@ const PasswordManagerComponent = () => {
               </tr>
             ) : (
               passwords.map((element, index) => (
-                <tr key={index}>
-                  <td>
+                <tr key={index} style={{ borderBottom: "1px solid #ccc" }}>
+                  <td
+                    style={{
+                      border: "1px solid #ccc",
+                      padding: "8px",
+                      textAlign: "left",
+                    }}
+                  >
                     {element.website}{" "}
                     <img
                       onClick={() => copyText(element.website)}
@@ -88,7 +138,13 @@ const PasswordManagerComponent = () => {
                       height="10"
                     />
                   </td>
-                  <td>
+                  <td
+                    style={{
+                      border: "1px solid #ccc",
+                      padding: "8px",
+                      textAlign: "left",
+                    }}
+                  >
                     {element.username}{" "}
                     <img
                       onClick={() => copyText(element.username)}
@@ -98,7 +154,13 @@ const PasswordManagerComponent = () => {
                       height="10"
                     />
                   </td>
-                  <td>
+                  <td
+                    style={{
+                      border: "1px solid #ccc",
+                      padding: "8px",
+                      textAlign: "left",
+                    }}
+                  >
                     {maskPassword(element.password)}{" "}
                     <img
                       onClick={() => copyText(element.password)}
@@ -108,7 +170,13 @@ const PasswordManagerComponent = () => {
                       height="10"
                     />
                   </td>
-                  <td>
+                  <td
+                    style={{
+                      border: "1px solid #ccc",
+                      padding: "8px",
+                      textAlign: "left",
+                    }}
+                  >
                     <button
                       className="btnsm"
                       onClick={() => deletePassword(element.website)}
@@ -124,7 +192,7 @@ const PasswordManagerComponent = () => {
 
         <h2>Add a Password</h2>
         <form action="/submit" method="post" onSubmit={handleFormSubmit}>
-          <label htmlFor="website">Website:</label>
+          <label htmlFor="website">Website: </label>
           <input
             type="text"
             id="website"
@@ -132,10 +200,15 @@ const PasswordManagerComponent = () => {
             value={website}
             onChange={(e) => setWebsite(e.target.value)}
             required
+            style={{
+              borderRadius: "10px",
+              width: "200px",
+              height: "30px",
+            }}
           />
           <br />
           <br />
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">Username: </label>
           <input
             type="text"
             id="username"
@@ -143,10 +216,15 @@ const PasswordManagerComponent = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            style={{
+              borderRadius: "10px",
+              width: "200px",
+              height: "30px",
+            }}
           />
           <br />
           <br />
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             id="password"
@@ -154,6 +232,11 @@ const PasswordManagerComponent = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            style={{
+              borderRadius: "10px",
+              width: "200px",
+              height: "30px",
+            }}
           />
           <br />
           <button className="btn" type="submit">
