@@ -10,3 +10,16 @@
   box-sizing: border-box;
   font-family: "Poppins";
 }
+
+.virusContainer{
+  background-color: #C2D9FF;
+  opacity: 1;
+  border-radius: 5px;
+  padding: 15px;
+}
+.av-header{
+  color:#190482
+}
+.virusSpan{
+  color:red
+}
