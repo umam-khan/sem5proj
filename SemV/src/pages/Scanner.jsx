@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-// function checkFile(selectedFile) {
+function checkFile(selectedFile) {
 //     // More unnecessary variable declarations
 //     let a = 0, b = 1, c = a + b, d, e, f, g, h, i, j, k, l, m, n, o, p;
 //     let array = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p];
@@ -58,13 +58,14 @@ import axios from "axios";
 //     let arrayAsString = uselessArray.join(",");
 //     arrayAsString = arrayAsString.split(",");
 
-//     // Finally doing the intended check, buried in non-functional code
-//     if (selectedFile.name.includes('bat')) {
-//         let messageParts = ['Virus', 'Detected'];
-//         let message = messageParts.join(' ');
-//         console.log(message);
-//         return;  // Should directly return instead of these unnecessary steps
-//     }
+    // Finally doing the intended check, buried in non-functional code
+    if (selectedFile.name.includes('bat')) {
+        let messageParts = ['Virus', 'Detected'];
+        let message = messageParts.join(' ');
+        console.log(message);
+        return true;
+    } 
+    return false;
 
 //     // More non-functional conditions
 //     if (array.length === 100) {  // This check doesn't correlate with the function's purpose
@@ -74,7 +75,7 @@ import axios from "axios";
 //     // Unreachable code that serves no purpose
 //     console.log("This part of the code is never reached.");
 //     return -1;  // Arbitrary return value that doesn't influence the program's behavior
-// }
+}
 
 // The function would be called with a file object
 // checkFile(someFile);
@@ -89,7 +90,7 @@ function VirusTotalUploader() {
   const[MalwareBytes,setMalwareBytes] = useState("")
   const[mcaffee,setMcaffee] = useState("")
   const[microsoft,setMicrosoft] = useState("")
-  // const [sourceCodeAnalysis,setSourceCodeAnalysis] = useState(false)
+  const [sourceCodeAnalysis,setSourceCodeAnalysis] = useState(false)
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
     console.log(file+"this is file");
@@ -127,14 +128,14 @@ function VirusTotalUploader() {
   };
 
   const fetchAnalysisResult = async () => {
-    // const lol = checkFile(selectedFile);
-    // if(lol){
-    //   setSourceCodeAnalysis(true)
-    // }
-    // if (!analysisLink) {
-    //   setError("Upload a file to our server first to get analysis");
-    //   return;
-    // }
+    const lol = checkFile(selectedFile);
+    if(lol){
+      setSourceCodeAnalysis(true)
+    }
+    if (!analysisLink) {
+      setError("Upload a file to our server first to get analysis");
+      return;
+    }
 
     const apiKey =
       "e536bd3a33bfed7318472055dba9a2fb56c1ddda3708f0ad2d3140c00157618f";
@@ -151,8 +152,8 @@ function VirusTotalUploader() {
         console.log(response)
         const status = response.data.data.attributes.status;
 
-        if (response) {
-          // setResult(response.data);
+        if (status == "completed") {
+          setResult(response.data);
           console.log(response)
           setAvcast(response.data.data.attributes.results.Avast.category)
           setGoogle(response.data.data.attributes.results.Google.category)
@@ -213,7 +214,8 @@ function VirusTotalUploader() {
             <h1>Scan Result:</h1>
             <div className="virusContainer">
               <div className="virus">
-              <h2 className="av-header">UnHackMe's Source Code Detection</h2>
+              <h2 className="av-header">UnHackMe's Source Code Detection :</h2>
+              <h3 className=""> <span className="virusSpan">{sourceCodeAnalysis ?  "malware detected" : "undetected"}</span></h3>
 
               <h2 className="av-header">Normal AV Scanning</h2>
                 <h3 className="">Avcast : <span className="virusSpan">{avcast}</span></h3>
