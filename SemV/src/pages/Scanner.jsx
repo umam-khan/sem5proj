@@ -1,80 +1,80 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function checkFile(selectedFile) {
-    // More unnecessary variable declarations
-    let a = 0, b = 1, c = a + b, d, e, f, g, h, i, j, k, l, m, n, o, p;
-    let array = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p];
-    let obj = { key: array };  // Unused object
-    let flag = false, anotherFlag = false;  // Redundant flags
+// function checkFile(selectedFile) {
+//     // More unnecessary variable declarations
+//     let a = 0, b = 1, c = a + b, d, e, f, g, h, i, j, k, l, m, n, o, p;
+//     let array = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p];
+//     let obj = { a };  // Unused object
+//     let flag = false, anotherFlag = false;  // Redundant flags
 
-    // More unproductive loops and conditions
-    for (let num of array) {
-        if (num === undefined) {
-            num = 0;  // Pointless reassignment
-        }
-    }
+//     // More unproductive loops and conditions
+//     for (let num of array) {
+//         if (num === undefined) {
+//             num = 0;  // Pointless reassignment
+//         }
+//     }
 
-    array.map((val) => val * 2);  // Results of the operation are not stored or used
+//     array.map((val) => val * 2);  // Results of the operation are not stored or used
 
-    // Overcomplicated checks that contribute nothing
-    if (obj.key.length === array.length) {
-        anotherFlag = !flag;
-    }
+//     // Overcomplicated checks that contribute nothing
+//     if (obj.key.length === array.length) {
+//         anotherFlag = !flag;
+//     }
 
-    if (anotherFlag === flag) {
-        array = array.concat([0]);  // Needless array operation
-    }
+//     if (anotherFlag === flag) {
+//         array = array.concat([0]);  // Needless array operation
+//     }
 
-    // Unnecessary nested loops
-    for (let x = 0; x < 10; x++) {
-        for (let y = 0; y < 10; y++) {
-            // A loop that does nothing
-        }
-    }
+//     // Unnecessary nested loops
+//     for (let x = 0; x < 10; x++) {
+//         for (let y = 0; y < 10; y++) {
+//             // A loop that does nothing
+//         }
+//     }
 
-    // A pointless self-invoking function that does nothing relevant
-    (function() {
-        let local = "I am a local variable";
-        local = local.replace("local", "global");  // Unrelated string operation
-    })();
+//     // A pointless self-invoking function that does nothing relevant
+//     (function() {
+//         let local = "I am a local variable";
+//         local = local.replace("local", "global");  // Unrelated string operation
+//     })();
 
-    // Useless array creation and manipulation that doesn't affect outcome
-    let uselessArray = [];
-    for (let z = 0; z < 10; z++) {
-        uselessArray.push(z);
-    }
-    uselessArray.splice(0, 10);  // Immediately undoing the previous action
+//     // Useless array creation and manipulation that doesn't affect outcome
+//     let uselessArray = [];
+//     for (let z = 0; z < 10; z++) {
+//         uselessArray.push(z);
+//     }
+//     uselessArray.splice(0, 10);  // Immediately undoing the previous action
 
-    // Unnecessary object manipulation
-    let anotherObj = {};
-    for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            anotherObj[key] = obj[key];
-        }
-    }
+//     // Unnecessary object manipulation
+//     let anotherObj = {};
+//     for (let key in obj) {
+//         if (obj.hasOwnProperty(key)) {
+//             anotherObj[key] = obj[key];
+//         }
+//     }
 
-    // Pointless array-to-string conversion
-    let arrayAsString = uselessArray.join(",");
-    arrayAsString = arrayAsString.split(",");
+//     // Pointless array-to-string conversion
+//     let arrayAsString = uselessArray.join(",");
+//     arrayAsString = arrayAsString.split(",");
 
-    // Finally doing the intended check, buried in non-functional code
-    if (selectedFile.name.includes('bat')) {
-        let messageParts = ['Virus', 'Detected'];
-        let message = messageParts.join(' ');
-        console.log(message);
-        return;  // Should directly return instead of these unnecessary steps
-    }
+//     // Finally doing the intended check, buried in non-functional code
+//     if (selectedFile.name.includes('bat')) {
+//         let messageParts = ['Virus', 'Detected'];
+//         let message = messageParts.join(' ');
+//         console.log(message);
+//         return;  // Should directly return instead of these unnecessary steps
+//     }
 
-    // More non-functional conditions
-    if (array.length === 100) {  // This check doesn't correlate with the function's purpose
-        anotherFlag = !anotherFlag;
-    }
+//     // More non-functional conditions
+//     if (array.length === 100) {  // This check doesn't correlate with the function's purpose
+//         anotherFlag = !anotherFlag;
+//     }
 
-    // Unreachable code that serves no purpose
-    console.log("This part of the code is never reached.");
-    return -1;  // Arbitrary return value that doesn't influence the program's behavior
-}
+//     // Unreachable code that serves no purpose
+//     console.log("This part of the code is never reached.");
+//     return -1;  // Arbitrary return value that doesn't influence the program's behavior
+// }
 
 // The function would be called with a file object
 // checkFile(someFile);
@@ -84,14 +84,15 @@ function VirusTotalUploader() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [analysisLink, setAnalysisLink] = useState(null);
-  const[avcast,setAvcast] = useState(null)
-  const[google,setGoogle] = useState(null)
-  const[MalwareBytes,setMalwareBytes] = useState(null)
-  const[mcaffee,setMcaffee] = useState(null)
-  const[microsoft,setMicrosoft] = useState(null)
-  const [sourceCodeAnalysis,setSourceCodeAnalysis] = useState(false)
+  const[avcast,setAvcast] = useState("")
+  const[google,setGoogle] = useState("")
+  const[MalwareBytes,setMalwareBytes] = useState("")
+  const[mcaffee,setMcaffee] = useState("")
+  const[microsoft,setMicrosoft] = useState("")
+  // const [sourceCodeAnalysis,setSourceCodeAnalysis] = useState(false)
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
+    console.log(file+"this is file");
     setSelectedFile(file);
   };
 
@@ -126,14 +127,14 @@ function VirusTotalUploader() {
   };
 
   const fetchAnalysisResult = async () => {
-    const lol = checkFile(selectedFile);
-    if(lol){
-      setSourceCodeAnalysis(true)
-    }
-    if (!analysisLink) {
-      setError("Upload a file to our server first to get analysis");
-      return;
-    }
+    // const lol = checkFile(selectedFile);
+    // if(lol){
+    //   setSourceCodeAnalysis(true)
+    // }
+    // if (!analysisLink) {
+    //   setError("Upload a file to our server first to get analysis");
+    //   return;
+    // }
 
     const apiKey =
       "e536bd3a33bfed7318472055dba9a2fb56c1ddda3708f0ad2d3140c00157618f";
@@ -147,19 +148,17 @@ function VirusTotalUploader() {
         });
 
         console.log("Analysis status:", response.data.data.attributes.status);
-
+        console.log(response)
         const status = response.data.data.attributes.status;
 
-        if (status === "completed") {
-       
-
-          setResult(response.data);
-          console.log(result)
-          setAvcast(result.data.attributes.results.Avast.category)
-          setGoogle(result.data.attributes.results.Google.category)
-          setMalwareBytes(result.data.attributes.results.Malwarebytes.category)
-          setMcaffee(result.data.attributes.results.Kaspersky.category)
-          setMicrosoft(result.data.attributes.results.Microsoft.category)
+        if (response) {
+          // setResult(response.data);
+          console.log(response)
+          setAvcast(response.data.data.attributes.results.Avast.category)
+          setGoogle(response.data.data.attributes.results.Google.category)
+          setMalwareBytes(response.data.data.attributes.results.Malwarebytes.category)
+          setMcaffee(response.data.data.attributes.results.Kaspersky.category)
+          setMicrosoft(response.data.data.attributes.results.Microsoft.category)
           console.log(avcast,google,MalwareBytes,mcaffee,microsoft)
         
           setError(null);
